@@ -8,6 +8,8 @@
 // 思路：1.空瓶取三的商 2.商和余数组成新的空瓶数 3. 累计每轮的商之和，若最后余两个空瓶则最终结果再加 1
 // 方案：明显可以用递归来简化代码
 
+// 思路二：剩两个空瓶就可以换一瓶, 可以按每两个空瓶就可以换一瓶但不保留空瓶
+
 let readLine = require('readline')
 
 const rl = readLine.createInterface(process.stdin, process.stdout)
@@ -18,17 +20,5 @@ rl.on('line',line => {
 })
 
 function calcDrinking(n) {
-  function calcLogic(num, count = 0) {
-    let quotient = parseInt(num / 3) 
-    let remainder = num % 3
-    let newNum = quotient + remainder
-    count += quotient
-    if (newNum >= 3) {
-      count = calcLogic(newNum, count)
-    } else if(newNum === 2) {
-      return count + 1
-    }
-    return count
-  }
-  return calcLogic(n)
+  return parseInt(n/2)
 }
