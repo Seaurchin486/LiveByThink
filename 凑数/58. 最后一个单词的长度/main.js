@@ -9,13 +9,13 @@
  */
 var lengthOfLastWord = function (s) {
   let count = 0
-  for (let i = s.length - 1; i >= 0; i--) {
+  let i = s.length - 1
+  while(s[i] === ' ') {
+    i--
+  }
+  for (; i >= 0; i--) {
       if (s[i] === ' ') {
-          if (!count) {
-              continue
-          } else {
-              break
-          }
+          break
       }
       count++
   }
@@ -24,4 +24,5 @@ var lengthOfLastWord = function (s) {
 
 /*
 倒叙遍历应该用i--
+循环中减少判断，能提高运行时效率
 */
